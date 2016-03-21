@@ -6,13 +6,10 @@ get '/' do
     File.read(File.join('.', '/frontend.html'))
 end
 
-post '/dimmeroff' do
-    
-    system( "tdtool --off 994")
+post '/dim' do
+    level = params[:level]
+puts level
+    system( "tdtool --dim 994 --dimlevel " + level)
+    puts level 
 end
 
-post '/dimmeron' do
-    
-    system( "tdtool --dimlevel 255 --dim 994")
-end
-   

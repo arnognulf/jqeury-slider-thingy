@@ -11,13 +11,14 @@
   $(function() {
     $( "#slider-range-min" ).slider({
       range: "min",
-      value: 255,
-      min: 0,
-      max: 255,
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "" + ui.value );
-      }
-    });
+	      value: 255,
+	      min: 0,
+	      max: 255,
+	      slide: function( event, ui ) {
+		$( "#amount" ).val( "" + ui.value );
+                $.post( "/dim?level=" + ui.value);
+	      }
+	    });
     $( "#amount" ).val( "" + $( "#slider-range-min" ).slider( "value" ) );
   });
   </script>
